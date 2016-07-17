@@ -9,6 +9,7 @@
 #include <cstring>
 #include <sys/stat.h>
 #include <ctime>
+#include <sstream>
 using boost::asio::ip::tcp;
 
 std::ofstream lg;
@@ -36,6 +37,7 @@ public:
 			std::string cmd, flandpar, fl;
 			ii>>cmd;
 			ii>>flandpar;
+			std::cout<<&buf<<std::endl;
 			char t;
 			for(int i=0;i<flandpar.length();i++){
 				t=flandpar[i];
