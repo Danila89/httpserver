@@ -65,6 +65,7 @@ public:
 				oo<<"Connection: keep-alive"<<'\r'<<'\n';
 				oo<<"Accept-Ranges: bytes"<<'\r'<<'\n'<<'\r'<<'\n';
 				while(fstr.get(c)) oo.put(c);
+				oo<<std::endl;
 			}
 			fstr.close();
 			async_write(sock,buf,boost::bind(&session::handle_write,
