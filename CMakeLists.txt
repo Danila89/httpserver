@@ -1,0 +1,5 @@
+project(final)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(SOURCE_EXE main.cpp)
+add_executable(${PROJECT_NAME} ${SOURCE_EXE})
+target_link_libraries(${PROJECT_NAME} boost_system pthread boost_thread)
