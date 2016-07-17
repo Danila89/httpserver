@@ -10,7 +10,7 @@
 #include <sys/stat.h>
 using boost::asio::ip::tcp;
 
-std::ofstream lg("server.log");
+std::ofstream lg();
 boost::asio::io_service io_serv;
 void iosrun()
 {
@@ -121,6 +121,7 @@ int main(int argc, char* argv[])
 		if(setsid()==-1) perror("Setsid");
 		if(chroot(dir)==-1) perror("Chroot");
 		if(chdir("/")==-1) perror("Chdir");
+		lg.open("server.log");
 		fclose(stdin);
 		fclose(stdout);
 		fclose(stderr);
