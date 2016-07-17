@@ -32,13 +32,14 @@ public:
 		if(!error){
 			std::istream ii(&buf);
 			std::ostream oo(&buf);
-			std::string cmd, fl;
+			std::string cmd, fl, parameters;
 			ii>>cmd;
 			char t;
 			while(ii.get(t)){
 				if(t!='?') fl.push_back(t);
 				else break;
 			}
+			ii>>parameters;
 			lg<<"Received "<<cmd<<" command for"<<fl<<std::endl;
 			if(cmd!="GET") delete this;
 			std::ifstream fstr(fl.c_str());
