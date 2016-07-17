@@ -58,7 +58,7 @@ public:
 				oo<<"HTTP/1.0 200 OK"<<'\r'<<'\n';
 				oo<<"Server: myhttp"<<'\r'<<'\n';
 				std::time_t tm=std::time(nullptr);
-				oo<"Date: "<<std::asctime(std::localtime(&tm))<<'\r'<<'\n';
+				oo<<"Date: "<<std::asctime(std::localtime(&tm))<<'\r'<<'\n';
 				oo<<"Content-Type: text/html"<<'\r'<<'\n';
 				oo<<"Content-Length: "<<sz<<'\r'<<'\n';
 				oo<<"Last-Modified: "<<std::asctime(std::localtime(&(st.st_mtime)))<<'\r'<<'\n';
