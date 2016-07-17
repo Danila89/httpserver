@@ -10,7 +10,7 @@
 #include <sys/stat.h>
 using boost::asio::ip::tcp;
 
-std::ofstream lg();
+std::ofstream lg;
 boost::asio::io_service io_serv;
 void iosrun()
 {
@@ -35,7 +35,7 @@ public:
 			std::string cmd, fl;
 			ii>>cmd;
 			char t;
-			while(ii.get(t){
+			while(ii.get(t)){
 				if(t!='?') fl.push_back(t);
 				else break;
 			}
