@@ -40,7 +40,7 @@ public:
 			std::ifstream fstr(fl);
 			if(fstr.fail()) {
 				oo<<"HTTP/1.0 404 Not Found"<<'\r'<<'\n';
-				oo<<"Content length: 0"<<'\r'<<'\n';
+				oo<<"Content-length: 0"<<'\r'<<'\n';
 				oo<<"Content-Type: text/html"<<'\r'<<'\n'<<'\r'<<'\n';
 			}
 			else{
@@ -49,7 +49,7 @@ public:
 				int sz=st.st_size;
 				char c;
 				oo<<"HTTP/1.0 200 OK"<<'\r'<<'\n';
-				oo<<"Content length: "<<sz<<'\r'<<'\n';
+				oo<<"Content-length: "<<sz<<'\r'<<'\n';
 				oo<<"Content-Type: text/html"<<'\r'<<'\n'<<'\r'<<'\n';
 				while(fstr.get(c)) oo.put(c);
 			}
