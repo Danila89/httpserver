@@ -41,7 +41,7 @@ public:
 			}
 			lg<<"Received "<<cmd<<" command for"<<fl<<std::endl;
 			if(cmd!="GET") delete this;
-			std::ifstream fstr(fl);
+			std::ifstream fstr(fl.c_str());
 			if(fstr.fail()) {
 				oo<<"HTTP/1.0 404 Not Found"<<'\r'<<'\n';
 				oo<<"Content-length: 0"<<'\r'<<'\n';
