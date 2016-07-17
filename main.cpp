@@ -22,6 +22,7 @@ class session
 {
 private:
 	boost::asio::streambuf buf;
+	boost::asio::streambuf obuf;
 	tcp::socket sock;
 public:
 	session(boost::asio::io_service &io): sock(io) {}
@@ -33,11 +34,10 @@ public:
 	void handle_read(const boost::system::error_code &error){
 		if(!error){
 			std::istream ii(&buf);
-			std::ostream oo(&buf);
+			std::ostream oo(&obuf);
 			std::string cmd, flandpar, fl;
 			ii>>cmd;
 			ii>>flandpar;
-			std::cout<<&buf<<std::endl;
 			char t;
 			for(int i=0;i<flandpar.length();i++){
 				t=flandpar[i];
