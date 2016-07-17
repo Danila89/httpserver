@@ -64,6 +64,7 @@ public:
 				oo<<"Last-Modified: "<<std::asctime(std::localtime(&(st.st_mtime)));
 				oo<<"Connection: close"<<'\r'<<'\n';
 				oo<<"Accept-Ranges: bytes"<<'\r'<<'\n'<<'\r'<<'\n';*/
+				oo<<'\r'<<'\n'<<'\r'<<'\n';
 				while(fstr.get(c)) oo.put(c);
 				oo<<std::endl;
 			}
