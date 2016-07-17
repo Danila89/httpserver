@@ -8,6 +8,7 @@
 #include <string>
 #include <cstring>
 #include <sys/stat.h>
+#include <ctime>
 using boost::asio::ip::tcp;
 
 std::ofstream lg;
@@ -55,8 +56,14 @@ public:
 				int sz=st.st_size;
 				char c;
 				oo<<"HTTP/1.0 200 OK"<<'\r'<<'\n';
+				oo<<"Server: myhttp"<<'\r'<<'\n';
+				std::time_t tm=std::time(nullptr);
+				oo<"Date: "<<std::asctime(std::localtime(&tm))<<'\r'<<'\n';
+				oo<<"Content-Type: text/html"<<'\r'<<'\n';
 				oo<<"Content-Length: "<<sz<<'\r'<<'\n';
-				oo<<"Content-Type: text/html"<<'\r'<<'\n'<<'\r'<<'\n';
+				oo<<"Last-Modified: "<<std::asctime(std::localtime(&(st.st_mtime)))<<'\r'<<'\n';
+				oo<<"Connection: keep-alive"<<'\r'<<'\n';
+				oo<<"Accept-Ranges: bytes"<<'\r'<<'\n'<<'\r'<<'\n';
 				while(fstr.get(c)) oo.put(c);
 			}
 			fstr.close();
