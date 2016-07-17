@@ -71,7 +71,7 @@ public:
 				oo<<std::endl;
 			}
 			fstr.close();
-			async_write(sock,buf,boost::bind(&session::handle_write,
+			async_write(sock,obuf,boost::bind(&session::handle_write,
 				this,boost::asio::placeholders::error));
 		}
 		else delete this;
