@@ -34,7 +34,10 @@ public:
 			std::ostream oo(&buf);
 			std::string cmd, fl;
 			ii>>cmd;
-			ii>>fl;
+			char t;
+			while((ii.get(t))&&(t!='?')){
+				fl.push_back(t);
+			}
 			lg<<"Received "<<cmd<<" command for"<<fl<<std::endl;
 			if(cmd!="GET") delete this;
 			std::ifstream fstr(fl);
