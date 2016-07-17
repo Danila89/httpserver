@@ -35,8 +35,9 @@ public:
 			std::string cmd, fl;
 			ii>>cmd;
 			char t;
-			while((ii.get(t))&&(t!='?')){
-				fl.push_back(t);
+			while(ii.get(t){
+				if(t!='?') fl.push_back(t);
+				else break;
 			}
 			lg<<"Received "<<cmd<<" command for"<<fl<<std::endl;
 			if(cmd!="GET") delete this;
